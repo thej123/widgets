@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Dropdown = ({ options, selected, onSelectedChange }) => {
+const Dropdown = ({ label, options, selected, onSelectedChange }) => {
     // To show/hide the dropdown
     const [open, setOpen] = useState(false)
     const ref = useRef()
@@ -11,7 +11,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
             if (ref.current && ref.current.contains(event.target)){
                 return;
             }
-            console.log('body click')
+            // console.log('body click')
             // console.log(event.target)
             setOpen(false)
         }
@@ -37,7 +37,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
              className='item'
              // updated the selected dropdown
              onClick={() => {
-                 console.log('item click')
+                //  console.log('item click')
                  onSelectedChange(option)
              }}
             >
@@ -51,11 +51,11 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         <div ref={ref} className="ui form">
             <div className="field">
                 <label htmlFor="" className="label">
-                    Select a Color
+                    {label}
                 </label>
                 <div
                  onClick={() => {
-                     console.log('dropdown click')
+                    //  console.log('dropdown click')
                      setOpen(!open)
                  }} 
                 //  To show/hide the dropdown
@@ -68,9 +68,9 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
                         {renderedOptions}
                     </div>
                 </div>
-                <div style={{ color: selected.value }}>
+                {/* <div style={{ color: selected.value }}>
                     <h1>The color is {selected.value}</h1>
-                </div>
+                </div> */}
             </div>
             
         </div>
